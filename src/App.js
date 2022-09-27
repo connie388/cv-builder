@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import GeneralInfo from "./components/GeneralInfo";
@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import GenerateResume from "./components/GenerateResume";
 
 export default function App() {
+  const [data, setData] = useState(false);
   const sectionOneRef = useRef(null); // Home
   const sectionTwoRef = useRef(null); // Education
   const sectionThreeRef = useRef(null); // Experience
@@ -49,6 +50,12 @@ export default function App() {
         sectionThreeRef={sectionThreeRef}
         scrollDown={scrollDown}
         setGenResume={setGenResume}
+        generalInfo={generalInfo}
+        edRecord={edRecord}
+        expRecord={expRecord}
+        setGeneralInfo={setGeneralInfo}
+        setEdRecord={setEdRecord}
+        setExpRecord={setExpRecord}
       />
 
       {genResume !== true ? (

@@ -68,7 +68,7 @@ function GenerateResume({ generalInfo, edRecord, expRecord }) {
           ) : (
             <></>
           )}
-          <h2>{generalInfo.name}</h2>
+          <h2>{generalInfo.name || ""}</h2>
           {generalInfo.email.length === 0 ? (
             <></>
           ) : (

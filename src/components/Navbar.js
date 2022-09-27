@@ -1,5 +1,5 @@
 import React from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Navbar.css";
 
@@ -9,6 +9,12 @@ function Navbar({
   sectionThreeRef,
   scrollDown,
   setGenResume,
+  generalInfo,
+  edRecord,
+  expRecord,
+  setGeneralInfo,
+  setEdRecord,
+  setExpRecord,
 }) {
   /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
   const myFunction = () => {
@@ -39,6 +45,52 @@ function Navbar({
       navbar.classList.remove("sticky");
     }
   }
+
+  const importData = () => {
+    fetch("./user-info.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        setGeneralInfo(myJson.general);
+        setEdRecord(myJson.education);
+        setExpRecord(myJson.experience);
+
+        toast.success("User information imported.", {
+          position: toast.POSITION.TOP_LEFT,
+          autoClose: false,
+          closeOnClick: true,
+          toastId: "customId",
+        });
+      });
+  };
+
+  const exportData = () => {
+    const generalStr = JSON.stringify(generalInfo);
+    const educationStr = JSON.stringify(edRecord);
+    const experienceStr = JSON.stringify(expRecord);
+    const userInfo =
+      '{"general":' +
+      generalStr +
+      ',"education":' +
+      educationStr +
+      ',"experience":' +
+      experienceStr +
+      "}";
+
+    const blob = new Blob([userInfo], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.download = "user-info.json";
+    link.href = url;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="topnav" id="myTopnav">
@@ -77,7 +129,7 @@ function Navbar({
           setGenResume(true);
         }}
       >
-        Preview Resume
+        Preview
       </a>
       <a
         href="#"
@@ -85,8 +137,25 @@ function Navbar({
           window.print();
         }}
       >
-        Print Screen
+        Print
       </a>
+      <a
+        href="#"
+        onClick={() => {
+          importData();
+        }}
+      >
+        Import
+      </a>
+      <a
+        href="#"
+        onClick={() => {
+          exportData();
+        }}
+      >
+        Export
+      </a>
+
       <a href="#" className="icon" onClick={myFunction}>
         <i className="fa fa-bars"></i>
       </a>
