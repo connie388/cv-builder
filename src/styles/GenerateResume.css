@@ -1,0 +1,105 @@
+.resume-container {
+  width: 595px;
+  background: white;
+  margin: 0 auto;
+  min-height: 842px;
+  color: #333333;
+  font: 12pt "Ubuntu", "Roboto", Georgia, "Times New Roman", Times, serif;
+  line-height: 1.3;
+}
+
+.icon {
+  color: #009688;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.resume-container h1 {
+  font-size: 18pt;
+}
+
+.resume-container h2 {
+  font-size: 16pt;
+}
+
+.resume-container h5 {
+  font-size: 14pt;
+}
+
+.left-title {
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.skills {
+  text-align: center;
+  color: white;
+  height: 1em;
+}
+
+.skill100 {
+  width: 100%;
+  background-color: #009688;
+}
+.skill95 {
+  width: 95%;
+  background-color: #009688;
+}
+.skill90 {
+  width: 90%;
+  background-color: #009688;
+}
+.skill85 {
+  width: 85%;
+  background-color: #009688;
+}
+.skill80 {
+  width: 80%;
+  background-color: #009688;
+}
+.skill75 {
+  width: 75%;
+  background-color: #009688;
+}
+.skill70 {
+  width: 70%;
+  background-color: #009688;
+}
+.skill65 {
+  width: 65%;
+  background-color: #009688;
+}
+.skill60 {
+  width: 60%;
+  background-color: #009688;
+}
+
+.parent {
+  width: 100%;
+}
+.child1 {
+  float: left;
+  width: 40%;
+}
+
+.child2 {
+  float: left;
+  width: 60%;
+}
+
+@media print {
+  @page {
+    size: portrait;
+    margin: 0.15cm 0.15cm;
+  }
+
+  #myTopnav {
+    display: none;
+    page-break-inside: avoid;
+  }
+}

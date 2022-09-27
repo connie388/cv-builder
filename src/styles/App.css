@@ -1,0 +1,40 @@
+#label-filename {
+  background-color: #0d6efd;
+  color: white;
+}
+
+#filename {
+  display: none;
+}
+
+#label-filename:hover {
+  background-color: #0b5ed7;
+  border: 2px solid #0b5ed7;
+}
+
+input[type="radio"] {
+  width: 30px;
+  height: 30px;
+}
+
+.profile-photo {
+  height: 150px;
+  width: 150px;
+  border: 1px solid #009688;
+  border-radius: 50%;
+}
+
+#no-profile-photo,
+#label-filename {
+  width: 300px;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
