@@ -70,18 +70,20 @@ function Navbar({
 
   return (
     <div className="topnav" id="myTopnav">
-      <a
-        href="#"
+      <button
+        type="button"
+        className="link-button active"
         onClick={() => {
           setGenResume("home");
           scrollDown(sectionOneRef);
         }}
-        className="active"
       >
         Home
-      </a>
+      </button>
 
-      <a
+      <button
+        type="button"
+        className="link-button"
         href="#"
         onClick={() => {
           setGenResume("home");
@@ -89,52 +91,57 @@ function Navbar({
         }}
       >
         Education
-      </a>
-      <a
-        href="#"
+      </button>
+      <button
+        type="button"
+        className="link-button"
         onClick={() => {
           setGenResume("home");
           scrollDown(sectionThreeRef);
         }}
       >
         Experience
-      </a>
-      <a
-        href="#"
+      </button>
+      <button
+        type="button"
+        className="link-button"
         onClick={() => {
           setGenResume("resume");
         }}
       >
         Preview
-      </a>
-      <a
-        href="#"
+      </button>
+      <button
+        type="button"
+        className="link-button"
         onClick={() => {
           window.print();
         }}
       >
         Print
-      </a>
-      <a
-        href="#"
+      </button>
+      <button
+        type="button"
+        className="link-button"
         onClick={() => {
           setGenResume("import");
         }}
       >
         Import
-      </a>
-      <a
-        href="#"
+      </button>
+      <button
+        type="button"
+        className="link-button"
         onClick={() => {
           exportData();
         }}
       >
         Export
-      </a>
+      </button>
 
-      <a href="#" className="icon" onClick={myFunction}>
+      <button type="button" className="link-button icon" onClick={myFunction}>
         <i className="fa fa-bars"></i>
-      </a>
+      </button>
       <ToastContainer />
     </div>
   );

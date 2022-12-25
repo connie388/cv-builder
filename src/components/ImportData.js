@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import "../styles/ImportData.css";
 
 function ImportData({ setGeneralInfo, setEdRecord, setExpRecord }) {
@@ -23,7 +22,7 @@ function ImportData({ setGeneralInfo, setEdRecord, setExpRecord }) {
       setExpRecord(myJson.experience);
 
       toast.success("User information imported.", {
-        position: toast.POSITION.TOP_LEFT,
+        position: toast.POSITION.TOP_CENTER,
         autoClose: false,
         closeOnClick: true,
         toastId: "customId",
@@ -37,7 +36,6 @@ function ImportData({ setGeneralInfo, setEdRecord, setExpRecord }) {
       <div>
         <button onClick={fetchImportData}>Submit</button>
       </div>
-      <ToastContainer />
     </div>
   );
 }
