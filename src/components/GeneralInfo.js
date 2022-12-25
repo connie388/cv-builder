@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/App.css";
 import blankProfileImg from "../images/no-photo.png";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 function GeneralInfo({ formData, setFormData }) {
-  useEffect(() => {
-    console.log(JSON.stringify(formData));
-  }, [formData]);
+  // useEffect(() => {
+  //   console.log(JSON.stringify(formData));
+  // }, [formData]);
 
   const changeHandler = (event) => {
     // setFormData({

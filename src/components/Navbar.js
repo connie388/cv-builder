@@ -1,5 +1,5 @@
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Navbar.css";
 
@@ -46,30 +46,6 @@ function Navbar({
     }
   }
 
-  const importData = () => {
-    fetch("./user-info.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        setGeneralInfo(myJson.general);
-        setEdRecord(myJson.education);
-        setExpRecord(myJson.experience);
-
-        toast.success("User information imported.", {
-          position: toast.POSITION.TOP_LEFT,
-          autoClose: false,
-          closeOnClick: true,
-          toastId: "customId",
-        });
-      });
-  };
-
   const exportData = () => {
     const generalStr = JSON.stringify(generalInfo);
     const educationStr = JSON.stringify(edRecord);
@@ -97,7 +73,7 @@ function Navbar({
       <a
         href="#"
         onClick={() => {
-          setGenResume(false);
+          setGenResume("home");
           scrollDown(sectionOneRef);
         }}
         className="active"
@@ -108,7 +84,7 @@ function Navbar({
       <a
         href="#"
         onClick={() => {
-          setGenResume(false);
+          setGenResume("home");
           scrollDown(sectionTwoRef);
         }}
       >
@@ -117,7 +93,7 @@ function Navbar({
       <a
         href="#"
         onClick={() => {
-          setGenResume(false);
+          setGenResume("home");
           scrollDown(sectionThreeRef);
         }}
       >
@@ -126,7 +102,7 @@ function Navbar({
       <a
         href="#"
         onClick={() => {
-          setGenResume(true);
+          setGenResume("resume");
         }}
       >
         Preview
@@ -142,7 +118,7 @@ function Navbar({
       <a
         href="#"
         onClick={() => {
-          importData();
+          setGenResume("import");
         }}
       >
         Import
